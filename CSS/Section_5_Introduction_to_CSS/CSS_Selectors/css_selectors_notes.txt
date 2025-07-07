@@ -1,0 +1,84 @@
+1. Element selector:
+
+    in style.css if we write 
+        h1{color: red;}
+    it will change all the h1 tags in html into red color
+
+2. class selector
+
+    here class is nothing but the Attribute we adding to html tag
+    ex: <h2> class="red-text"> Red </h2>
+
+    in style.css we will be using this as 
+
+        .red-text{color="red";}             ---> dot before the class name is mandatory without the gap.
+
+    functionality:lets group the all the html elements into a class
+    so, its used to grouping the elements in your html file to apply the same css rule to all of them. 
+
+    Ex:
+        css file:
+            .red-text{color:red;}
+
+        html file:
+            <h2 class="red-text"> Heading 2</h2>        ---> Turn into red color
+            <h3> Heading 3 </h3>
+            <p class="red-text">Paragraph</p>           ---> Turn into red color
+
+
+3. Id selector:
+
+    It has its own special symbol ---> #
+
+        #main{color: red}           ---> no space after the # and the ID Attribute
+    
+    html file:
+        <h2 id="main">Red</h2>
+        <h2>Green</h2>
+        <h2>Blue</h2>
+
+    It works similar to the class selector. 
+    Q. But what is the difference between the class and id?
+        class selector - can be applied to many elements in html file.
+        ID selector - can be applied to a one element in a single html file.
+
+    in one html file there will not exist duplicate id attribute name - It should be completedly "unique"
+
+4. Attribute selector:
+
+    in an html tag we can write as many attributes as we like.
+    so we had attributes such as id="" or class="" or draggable="" or src="" or href="" or alt="" and whole bunch more.
+
+    Now we can select these elements that have particular attributes or particular attribute values by using below notation.
+    Ex:
+        p[draggable]{
+            color:red                   ---> here this notation is saying that, select all the paragraph elements with attribute as draggable and apply the css style to it.
+        }
+
+    here 
+    p ---> html element that we want to select.
+    attribute ---> here we will be writing the attribute that we want to write.
+    {color:red} ---> this is the css style.
+
+    Ex:
+
+    css file:
+        p[draggable="flase"]{color:red;}
+
+    html file:
+        <p draggable="true">  Drag me </p>
+        <p draggable="false">  Don't Drag me </p>       ---> this paragraph will trun into red color
+        <p draggable="false">  Don't Drag me </p>       ---> this paragraph will trun into red color
+
+    basically in above example css file is checking for the combination of p tag and attribute draggable="false" and aplying the style to them.
+
+5. Universal selector:
+
+    it is really simple just add astrisk
+
+        *{
+            color:red;
+        }
+    here * means select all 
+    and when we apply this it doesnt matter what class, what id, what attribute set which different element...
+    it will select all and apply to everything where the style sheet is active.

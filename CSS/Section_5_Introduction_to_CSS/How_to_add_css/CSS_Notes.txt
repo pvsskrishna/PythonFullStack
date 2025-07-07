@@ -1,0 +1,77 @@
+CSS: Cascadding Style Sheet
+Sass
+Less
+
+Three ways of adding CSS:
+1. Inline:      <tag style="css" />
+2. Internal:    <style>css</style>
+3. External:    <link href="style.css" />
+
+
+Inline:
+-------
+Ex:
+<html style="background:blue"></html>
+
+Syntax:
+    <html_tag   name = "value"  > </html_tag>
+
+    "value" --->    "Property:value"
+
+Inline css elements are used for adding css to just single elements on html page.
+single html elements are like: <img/>,<br/>,<hr/>
+Its only for specific section, or in a single element or one line in html document
+
+Internal:
+---------
+
+This is done by special html tag called <style></style>
+Written inside the head section
+
+Ex:
+<head>
+  <meta charset="UTF-8">
+  <title>Internal</title>
+  <style>h1{color: red;}</style>
+</head>
+
+
+External:
+---------
+
+we will be writing the style in an external file seperatly.
+ex: styles.css
+and we will be using this sheet in html file in head section.
+
+Q.What is the correct syntax for linking an external stylesheet to an HTML document?
+Ans: <link rel="stylesheet" href="style.css"/>
+
+ex:
+<html>
+    <head>
+        <link 
+            rel="stylesheet"            ---> relation
+            href="./styles.css"          ---> location
+        />
+    </head>
+</html>
+----------
+ex:
+html file
+    <head>
+    <meta charset="UTF-8">
+    <title>External</title>
+    <link rel="stylesheet" href="./style.css">
+    </head>
+
+style.css file
+    h1{color: green;}
+
+
+
+Difference between Inline and Internal and External:
+----------------------------------------------------
+Inline: Inline is very useful when we want to target a single element.      ---> Target SIngle ELement
+Internal: Internal will be very useful when we want to target webpage.      ---> Target SIngle webpage
+External: External will be useful if we want to target multiy page website  ---> Target SIngle Website
+            - that is here we it target entire website
