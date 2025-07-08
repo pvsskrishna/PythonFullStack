@@ -1,0 +1,23 @@
+Syntax:
+------
+
+    html_tag{
+        property: value
+    }
+
+color properties:
+-----------------
+
+some of them we alredy know are example:
+
+    html{
+        background-color: red;
+    }
+
+    h1{
+        color:blue
+    }
+
+
+Font Properties:
+-----------------
