@@ -21,3 +21,55 @@ some of them we alredy know are example:
 
 Font Properties:
 -----------------
+
+    h1{
+        color: blue;
+        font-weight:bold;
+        font-size: 20px;
+        font-family:sans-serif;
+    }
+
+    1px = 1 pixel = 1/96th inch = 0.26mm
+    1pt = 1 point = 1/72nd inch = 0.35mm
+    1em = 100% of parent  = 20px    ---> Relative to parent
+    1rem = 100% of root ---> Relative to Root
+
+    em - it is not e m it is pronounced as "m"
+    in english alphabest "m" is the maximum widest aphabet - so, we can say 100% width.
+
+    rem - Relative em
+
+    Q. Difference between the 1em and 1rem ?
+
+    Example:
+
+        <footer style="font-size: 20px;">
+        <h2 style="font-size: 2em;">Hello</h2>
+        </footer>
+        Here, <footer> has font-size: 20px
+
+    <h2> uses 2em, so:
+    2 × 20px = 40px
+
+    Final computed size of <h2> = 40px
+
+    1rem → Relative to the Root Element (<html>)
+    The size of 1rem is based on the font size of the <html> tag, regardless of nesting.
+
+    Example:
+
+        <html style="font-size: 90px;">
+        <body>
+            <footer style="font-size: 20px;">
+            <h2 style="font-size: 2rem;">Hello</h2>
+            </footer>
+        </body>
+        </html>
+
+    Root <html> has font-size: 90px
+
+    <h2> uses 2rem, so:
+    2 × 90px = 180px
+
+    Final computed size of <h2> = 180px
+
