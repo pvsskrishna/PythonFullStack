@@ -1,0 +1,41 @@
+/* body{
+    width: 100%;
+    border-color: blueviolet;
+    border: thick solid purple;
+    border-width: 10px;
+}
+.box{
+    background-color: blue;
+    padding: 10px;
+}
+.yellow-text{
+    color: yellow;
+    margin: 0;
+    padding: 10px;
+}
+.white-text{
+    color: white;
+    background-color: red;
+    padding: 10px;
+    margin: 0;
+} */
+
+#outer-box{
+    background-color: purple;
+}
+.box{
+    background-color: blue;
+    padding: 10px;
+}
+.inner-box{
+    background-color: red;
+}
+p{
+    color:yellow;
+    margin: 0;
+    padding:0;
+}
+
+.white-text{
+    color:white;
+}

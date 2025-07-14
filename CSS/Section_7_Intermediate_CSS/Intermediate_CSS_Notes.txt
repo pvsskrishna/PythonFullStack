@@ -1,0 +1,78 @@
+The Cascade - Specificity and Inheritance:
+------------------------------------------
+
+    Just like python, CSS will update with the latest style written
+
+    like:
+        1st external file css will apply 
+        2nd it will check wether the internal file is having any style or not
+            if yes it will override the existing css.
+
+CSS Level of Importance:
+------------------------
+    It is based on 4 pillars:
+        1. Position
+        2. Specificity
+        3. Type
+        4. Importance
+
+
+    1. Position:
+    -----------
+    The lower level or latest css style will override the upper level or old.
+
+        li{
+            color: red;     ---> This is the old/upper level css
+            color: blue;    ---> This is the latest/lower level css -- This will overide the upper css
+        }
+        So, the lower down the file the rule is more important it is.
+
+    2. Specificity:
+    ---------------
+    It is like little bit of filtering and applying
+
+    ex:
+    <li id="first-id" class="first-class" draggagble>
+
+        li {color: blue;}                   ---> element level, This will for all the li elements
+        .first-class {color: red;}          ---> class, this will apply for the elements having this class - basicallly as we know class is used to group the elements 
+                                                so, here it will apply the color for the group of elements having the class as .first-class
+        li[draggable] {color: purple;}      --->attirbute: Using the attribute we can apply the css, this is also almost like class but different
+        #first-id {color: orange;}          --->id, Since is unique css will be applicable for the one id element
+
+        From the above example what we can say is 
+        at level 1 - everything will be in blue color
+        at level 2 - few elements will change from blue to red
+        at level 3 - among those red and blue, few will chnage into purple 
+        at last level - only item having that id will chnage into orange remaining will be having their own colors
+
+        But here all the above items present in single html then that will turn into ornage since id is lastly applied and that id is exist in that html
+
+        The more spcific it is the more css rule will apply
+
+    3. Type:
+    --------
+    It is like applying css based on how we are applying the css type
+        like External, internal or inline
+
+        as we know external will applicable for all the we pages
+        internal will applicable only for that page and 
+        inline is applicable for that one particular element 
+
+        here the level of execution is External > Internal > inline
+        Ex:
+            <link href="./style.css" rel="stylesheet">      --->External
+            <style> </styel>                                ---> Internal
+            <h1 style=" ">Hello</h1>                        ---> inline
+
+    4. Importance:
+    --------------
+    Ex:
+        color: red;
+        color: green !importance;           ---> This !important Keyword will ensure that this will be the most important rule relative to that element
+
+        It doesnt matter whther the upper rule is id or inline or it is a very bottom line 
+        the rule withe keyword !important will execute as a last level
+
+Combining CSS Selectors:
+------------------------
