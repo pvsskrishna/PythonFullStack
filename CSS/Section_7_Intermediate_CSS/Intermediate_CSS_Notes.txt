@@ -76,3 +76,132 @@ CSS Level of Importance:
 
 Combining CSS Selectors:
 ------------------------
+    CSS selectors are patterns used to select and style HTML elements.
+    Example:
+        h1 { color: red; }
+        .my-class { padding: 10px; }
+        div > p { margin: 0; }
+    These are used within stylesheets to apply styles to HTML elements.
+    Used for styling the webpage.
+
+    Ways to combine css selectors:
+    ------------------------------
+        Exaample html:
+        <body>
+            <h1>To Do List</h1>
+            <h2>Monday</h2>
+            <div class="box">
+                <p class="done">Do these things today!</p>
+                <ul class="list">
+                <li>Wash Clothes</li>
+                <li class="done">Read</li>
+                <li class="done">Maths Questions</li>
+                </ul>
+            </div>
+            <ul>
+                <p class="done">Other items</p>
+            </ul>
+            <p>The best preparation for tomorrow is doing your best today.</p>
+        </body>
+
+
+        1. Grouping selectors
+
+            syntax:
+                selector, selector{
+                    color: blueviolet;
+                }
+
+            Ex:
+                h1,h2{
+                    color: blueviolet;
+                }
+
+            Here we will be applying same color to two different elements by seperating the tag with coma.
+
+        2. Child
+            syntax:
+                selector1 > selector2{
+                    color: firebrick;
+                }
+            In this case selector1 is parent and selector2 is child.
+            Here child should be Direct child. That is, not a grand child, not a Great Grand child
+            This will work for one level child.
+
+            Ex:
+                div > p{
+                    color:firebrick
+                }
+        
+        3. Descendant
+            syntax:
+                selector1 selector2{
+                    color: blue;
+                }
+
+            Here selector1  --> Ancistor
+                selector2 ---> descendent
+                Desscendant = Apply to a descendant(selector2) of left side selector(i.e selector1)
+
+            Ex:
+                .box li {
+                    color: blue;
+                }
+
+        4. Chaining
+            syntax:
+                selecto1selecto2{
+                    color: seagreen;
+                }
+
+            Here Chaining = Apply where ALL selectors are true.
+            there is no space between those selectors.
+
+            Ex:
+            html:
+                <h1 id="title" class=" big heading">Hello World</h>
+                lets say this above html line exist in two pleaces at some other line but we want to configure different color to them
+
+                we can do it by using this chaining concept.
+
+            css:
+                h1#title.big.heading{
+                    color: seagreen;
+                }
+
+                or
+
+                h1.heading{
+                    color : seagreen;
+                }
+
+                we can use chaining with the attributes
+                NOTE: We should always write them in asscending order
+
+                Ex: According to this html --> <h1 id="title" class=" big heading">Hello World</h>
+                    h1 element should come 1st later we can write id but not id and h1
+                    after id, class should come but not class before the id
+                    dont write class 1st and element next beacuse it will looks like everything is class since there is no space ---> .bigh1
+        
+        5. Combining combiners
+            syntax:
+                selector1 selector2selector3{
+                    fontsize: 2rem;
+                }
+
+            Ex:
+                ul  p.done{             ---> Combining combiners using the "Descendant and chaining" method
+                    font-size: 0.5rem;
+                }
+
+                or 
+
+                ul > p{                 ---> using the child combination
+                    fontsize:0.5rem
+                }
+
+                or 
+
+                ul > p.done{            --->Combining combiners using the "child and chaining" method
+                    fontsize:0.5rem
+                }
