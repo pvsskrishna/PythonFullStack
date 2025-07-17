@@ -86,6 +86,12 @@ Combining CSS Selectors:
 
     Ways to combine css selectors:
     ------------------------------
+        1. Grouping 
+        2. Child 
+        3. Descendant
+        4. Chaining
+        5. Combining combiners
+
         Exaample html:
         <body>
             <h1>To Do List</h1>
@@ -205,3 +211,129 @@ Combining CSS Selectors:
                 ul > p.done{            --->Combining combiners using the "child and chaining" method
                     fontsize:0.5rem
                 }
+
+CSS Positioning:
+----------------
+
+    1. Relative
+    2. Absolute
+    3. Fixed
+    4. Static
+    5. sticky
+
+        CSS Position Types and z-index - Notes
+        --------------------------------------
+
+        1. position: static
+        -------------------
+        - This is the default position for all HTML elements.
+        - z-index does NOT work here.
+        - The element is placed according to the normal document flow.
+
+        Example:
+        ---------
+        .box {
+        position: static;
+        z-index: 10; /* Ignored */
+        }
+
+        Result:
+        - z-index has no effect.
+        - Element stays in natural order.
+
+
+        2. position: relative
+        ---------------------
+        - Moves the element relative to its original position.
+        - z-index works here.
+        - Creates a new stacking context when z-index is defined.
+
+        Example:
+        ---------
+        .box {
+        position: relative;
+        top: 10px;
+        left: 20px;
+        z-index: 2;
+        }
+
+        Result:
+        - Element moves slightly.
+        - Can overlap others depending on z-index.
+
+
+        3. position: absolute
+        ---------------------
+        - Element is removed from normal document flow.
+        - Positioned relative to the nearest positioned ancestor.
+        - z-index works and can overlap other elements.
+
+        Example:
+        ---------
+        .box {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        z-index: 3;
+        }
+
+        Result:
+        - Can layer elements using z-index.
+        - Doesn't affect layout of other elements.
+
+
+        4. position: fixed
+        ------------------
+        - Fixed relative to the viewport.
+        - Remains in place even during scroll.
+        - z-index works and can overlay anything on screen.
+
+        Example:
+        ---------
+        .box {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 999;
+        }
+
+        Result:
+        - Always visible in the same position.
+        - Often used for popups, sticky navs.
+
+
+        5. position: sticky
+        -------------------
+        - Acts like `relative` until a scroll threshold, then behaves like `fixed`.
+        - z-index works.
+        - Useful for sticky headers or sidebars.
+
+        Example:
+        ---------
+        .box {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        }
+
+        Result:
+        - Element sticks to top when scrolling.
+        - Maintains stacking using z-index.
+
+        --------------------------------------
+        Summary Table
+        --------------------------------------
+
+        | Position   | Removed from Flow | Reference Point             | z-index Works? | Use Case                      |
+        |------------|-------------------|-----------------------------|-----------------|-------------------------------|
+        | static     | No                | Normal flow                 | ❌ No          | Default layout                |
+        | relative   | No                | Itself                      | ✅ Yes         | Slight offset, stacking       |
+        | absolute   | Yes               | Nearest positioned ancestor | ✅ Yes         | Floating boxes, modals        |
+        | fixed      | Yes               | Viewport                    | ✅ Yes         | Sticky footers, floating menu |
+        | sticky     | No (initially)    | Scroll position             | ✅ Yes         | Sticky headers/columns        |
+
+        --------------------------------------
+
+
+
+

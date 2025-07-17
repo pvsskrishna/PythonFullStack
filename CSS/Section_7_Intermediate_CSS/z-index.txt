@@ -1,0 +1,114 @@
+CSS z-index in Absolute Positioning - Notes
+-------------------------------------------
+
+What is z-index?
+----------------
+- z-index controls the vertical stacking order of elements.
+- It works only on elements with a positioned value: absolute, relative, fixed, or sticky.
+- Higher z-index values appear on top of lower ones.
+- Elements with the same z-index are stacked based on their order in the HTML.
+
+Types / Levels of z-index
+--------------------------
+Though z-index doesn't have formal "types", it is typically used in the following ways:
+
+1. z-index: auto
+   - Default behavior.
+   - No explicit stacking order.
+   - Inherits from parent context.
+
+2. z-index: 0
+   - Neutral stacking level.
+   - Creates a stacking context if element is positioned.
+
+3. z-index: Positive integers (e.g., 1, 10, 999)
+   - Higher values stack on top of lower ones.
+   - Commonly used for modals, headers, dropdowns.
+
+4. z-index: Negative integers (e.g., -1)
+   - Places elements behind other positioned elements.
+   - Useful for background elements.
+
+Important Rules
+---------------
+- z-index only applies to positioned elements.
+- It works within the same stacking context.
+- Parent elements with stacking contexts limit children from overlapping other higher z-index elements outside that parent.
+- CSS properties like `opacity`, `transform`, and `filter` can create new stacking contexts.
+
+Examples
+--------
+
+Example 1: Basic Layering
+-------------------------
+HTML:
+<div class="box1">Box 1</div>
+<div class="box2">Box 2</div>
+
+CSS:
+.box1 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  background: red;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+.box2 {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  background: blue;
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+}
+
+Result:
+Box 2 appears on top of Box 1 due to a higher z-index.
+
+Example 2: Background using Negative z-index
+-------------------------------------------
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(bg.jpg);
+  z-index: -1;
+}
+
+Result:
+The background image is behind all other content.
+
+Example 3: Conflict due to Parent Stacking Context
+--------------------------------------------------
+HTML:
+<div class="parent">
+  <div class="child">Child</div>
+</div>
+
+CSS:
+.parent {
+  position: relative;
+  z-index: 2;
+}
+
+.child {
+  position: absolute;
+  z-index: 10;
+}
+
+Note:
+Even though the child has z-index: 10, it will still be confined within the parent’s stacking context.
+
+Common Use Cases
+----------------
+- Modal dialogs: z-index: 9999
+- Dropdown menus: z-index: 100
+- Sticky headers: z-index: 10 or more
+- Background elements: z-index: -1
+
