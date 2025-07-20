@@ -1,0 +1,71 @@
+CSS Display:    ---> Its a css display property.
+------------
+    1. Block
+    2. Inline
+    3. Inline-Block
+
+CSS Display Property
+====================
+
+1. display: inline
+------------------
+- Does NOT start on a new line.
+- Takes only as much width as needed.
+- Cannot set width or height.
+- Only left/right margins are respected (top/bottom often ignored).
+- Common elements: <span>, <a>, <strong>
+
+Example:
+<span>This is inline</span>
+<span>Another inline</span>
+
+--------------------------------------------------
+
+2. display: block
+-----------------
+- Starts on a new line.
+- Takes full width of its parent by default.
+- You can set width, height, padding, margin, etc.
+- Common elements: <div>, <p>, <h1> to <h6>
+
+Example:
+<div>This is block</div>
+<div>Another block</div>
+
+--------------------------------------------------
+
+3. display: inline-block
+------------------------
+- Does NOT start on a new line (like inline).
+- Respects width and height (like block).
+- Can sit next to other inline or inline-block elements.
+- Useful for layouts and buttons.
+
+Example:
+<span style="display: inline-block; width: 100px; height: 50px; background: yellow;">Box 1</span>
+<span style="display: inline-block; width: 100px; height: 50px; background: lightblue;">Box 2</span>
+
+--------------------------------------------------
+
+4. display: none
+----------------
+- Completely removes the element from the visual layout.
+- Does NOT occupy any space.
+- Element is not visible in the browser at all.
+- Different from "visibility: hidden" (which hides but still takes space).
+
+Example:
+<p>This is visible</p>
+<p style="display: none;">This will not be shown</p>
+
+--------------------------------------------------
+
+Summary Table
+=============
+
+| Property         | Starts New Line | Width/Height Settable | Occupies Space | Visible |
+|------------------|-----------------|------------------------|----------------|---------|
+| display: inline  | No              | No                     | Yes            | Yes     |
+| display: block   | Yes             | Yes                    | Yes            | Yes     |
+| display: inline-block | No         | Yes                    | Yes            | Yes     |
+| display: none    | No              | No                     | No             | No      |

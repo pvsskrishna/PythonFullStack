@@ -1,0 +1,75 @@
+Responsive Websites:
+--------------------
+    Making websites look good on all screen sizes.
+
+    There are 4 main ways of doing this:
+        1. Media Queries
+        2. CSS Grid
+        3. CSS Flexbox
+        4. External Frameworks ex:Bootstrap
+        
+
+CSS Responsive Websites
+=======================
+
+What is a Responsive Website?
+-----------------------------
+A responsive website adapts its layout and elements to fit various screen sizes: desktops, tablets, mobiles.
+
+Purpose:
+--------
+- Improve user experience on all devices.
+- Avoid horizontal scrolling and zooming.
+- Maintain design consistency across devices.
+
+Key CSS Techniques:
+-------------------
+
+1. Media Queries:
+   - CSS conditions based on screen width, height, etc.
+   Example:
+   @media (max-width: 768px) {
+     .container {
+       flex-direction: column;
+     }
+   }
+
+2. Relative Units:
+   - Use %, em, rem, vw instead of px.
+   Example:
+   width: 90%; padding: 2em;
+
+3. Flexbox & Grid:
+   - Flexible layout systems.
+   Example:
+   .wrapper {
+     display: flex;
+     flex-wrap: wrap;
+   }
+
+4. Responsive Images:
+   - Scale images to fit their container.
+   Example:
+   img {
+     max-width: 100%;
+     height: auto;
+   }
+
+Example:
+--------
+<div class="box">Responsive Box</div>
+
+@media (max-width: 600px) {
+  .box {
+    width: 100%;
+  }
+}
+
+Summary:
+--------
+| Feature             | Purpose                                      |
+|---------------------|----------------------------------------------|
+| Media Queries       | Adjust layout for different screen sizes     |
+| Relative Units      | Make widths, fonts, and padding flexible     |
+| Flex/Grid Layouts   | Allow items to wrap and resize automatically |
+| Responsive Images   | Ensure images fit inside containers          |

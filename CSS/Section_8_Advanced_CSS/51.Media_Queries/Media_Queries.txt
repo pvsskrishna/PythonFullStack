@@ -1,0 +1,86 @@
+Media Queries:              ---> https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
+-------------
+    Adding Breakpoints to define responsive layouts.
+
+    Understanding min-width vs max-width in Media Queries
+    =====================================================
+
+    1. min-width
+    ------------
+    - Triggers when the screen is AT LEAST the specified width.
+    - Used for larger screens.
+    - Example:
+    @media (min-width: 768px) {
+        /* Applies to 768px and up */
+    }
+
+    2. max-width
+    ------------
+    - Triggers when the screen is AT MOST the specified width.
+    - Used for smaller screens.
+    - Example:
+    @media (max-width: 767px) {
+        /* Applies to 767px and below */
+    }
+
+    Quick Table:
+    ------------
+    | Type        | Example              | Applies To         |
+    |-------------|----------------------|--------------------|
+    | min-width   | min-width: 768px     | 768px and wider    |
+    | max-width   | max-width: 767px     | 767px and smaller  |
+
+    Best Practice:
+    --------------
+    - Use min-width for "mobile-first" design.
+    - Use max-width for "desktop-first" design.
+
+    Combination example:
+    ---------------------
+    @media (min-width: 600px) and (max-width: 900px) {
+    /* styles here will only apply between 600px and 900px */
+    }
+
+
+    3. Device
+    ---------
+
+        @media screen(orientation:landscape){
+            /*styles for landscape orientation*/
+        }
+
+
+        @media print vs @media screen
+        =============================
+
+        1. @media screen
+        ----------------
+        - Applies styles for digital screens (default).
+        - Used for responsive design.
+        Example:
+        @media screen and (max-width: 768px) {
+        body {
+            background: lightblue;
+        }
+        }
+
+        2. @media print
+        ---------------
+        - Applies styles ONLY when printing the webpage.
+        - Useful for hiding unwanted content (like buttons, menus) in print.
+        Example:
+        @media print {
+        body {
+            background: white;
+            color: black;
+        }
+
+        .no-print {
+            display: none;
+        }
+        }
+
+        Use Case:
+        ---------
+        - @media screen: Design for viewing.
+        - @media print : Design for paper-friendly output.

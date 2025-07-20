@@ -1,0 +1,51 @@
+CSS Float:
+---------
+    Wrapping text using float and clear
+
+CSS Float Property
+==================
+
+The `float` property in CSS is used to position elements to the left or right, allowing text and inline content to wrap around them.
+
+Syntax:
+-------
+float: left;
+float: right;
+float: none;
+clear: both
+
+Common Values:
+--------------
+left   - Floats the element to the left.
+right  - Floats the element to the right.
+none   - Default, element stays in normal flow.
+
+Example:
+--------
+<img src="img.jpg" style="float: left; width: 150px; margin-right: 10px;">
+<p>This text wraps around the image to the right.</p>
+
+Important Notes:
+----------------
+- Floated elements are removed from normal document flow.
+- Parent elements may collapse if they only contain floated elements.
+- Use `clear: both` or clearfix to avoid layout issues.
+
+Clearing Floats:
+----------------
+1. Simple clear:
+   <div style="clear: both;"></div>
+
+2. Clearfix (modern method):
+
+   .clearfix::after {
+     content: "";
+     display: table;
+     clear: both;
+   }
+
+Usage Recommendation:
+---------------------
+✅ Use for: wrapping text around images, minor layout tweaks.
+❌ Avoid for: complex layouts — prefer `flexbox` or `grid`.
+
