@@ -1,0 +1,80 @@
+1. display: flex
+----------------
+    The display: flex property is used to create a flex container — enabling flexible and responsive layouts.
+
+    Ex:
+        .container {
+            display: flex;
+            gap: 10px
+        }
+
+        display: flex; Activates Flexbox layout on the .container.
+        gap: 10px: Adds a 10px spacing between the flex items inside the container.
+        All child elements inside .container will align horizontally (row by default) with 10px space between them.
+
+        Default Flex Direction:
+            flex-direction: row (i.e., left to right)
+
+        ✅ Flexbox: Row and Column Layouts
+        -----------------------------------
+            ✅ Flex as a Row (default)
+            Items are placed horizontally (left to right).
+
+            CSS:
+            .container-row {
+            display: flex;
+            flex-direction: row; /* default */
+            gap: 10px;
+            }
+
+            HTML:
+            <div class="container-row">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            </div>
+
+            -----------------------------------
+            ✅ Flex as a Column
+            Items are placed vertically (top to bottom).
+
+            CSS:
+            .container-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            }
+
+            HTML:
+            <div class="container-column">
+            <div>Item A</div>
+            <div>Item B</div>
+            <div>Item C</div>
+            </div>
+
+            -----------------------------------
+            🔄 Responsive Example: Switch Between Row and Column
+
+            CSS:
+            .responsive-container {
+            display: flex;
+            flex-direction: row;        /* row on big screens */
+            }
+
+            @media (max-width: 600px) {
+            .responsive-container {
+                flex-direction: column;   /* column on small screens */
+            }
+            }
+
+            -----------------------------------
+            🔁 Summary Table
+
+            flex-direction Value | Layout            | Use Case
+            ---------------------|-------------------|-------------------------------
+            row (default)        | Horizontal (L → R) | Nav bars, image galleries
+            column               | Vertical (T → B)   | Forms, menus, stacked content
+            row-reverse          | Horizontal (R → L) | Right-to-left layouts
+            column-reverse       | Vertical (B → T)   | Reverse-stacked elements
+
+        
