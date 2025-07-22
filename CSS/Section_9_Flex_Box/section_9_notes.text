@@ -14,67 +14,344 @@
 
         Default Flex Direction:
             flex-direction: row (i.e., left to right)
+2. Flex Direction:
+------------------
+    Row and column Layouts.
 
-        ✅ Flexbox: Row and Column Layouts
+    ✅ Flexbox: Row and Column Layouts
+    -----------------------------------
+        ✅ Flex as a Row (default)
+        Items are placed horizontally (left to right).
+
+        CSS:
+        .container-row {
+        display: flex;
+        flex-direction: row; /* default */
+        gap: 10px;
+        }
+
+        HTML:
+        <div class="container-row">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+        </div>
+
         -----------------------------------
-            ✅ Flex as a Row (default)
-            Items are placed horizontally (left to right).
+        ✅ Flex as a Column
+        Items are placed vertically (top to bottom).
+
+        CSS:
+        .container-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        }
+
+        HTML:
+        <div class="container-column">
+        <div>Item A</div>
+        <div>Item B</div>
+        <div>Item C</div>
+        </div>
+
+        -----------------------------------
+        🔄 Responsive Example: Switch Between Row and Column
+
+        CSS:
+        .responsive-container {
+        display: flex;
+        flex-direction: row;        /* row on big screens */
+        }
+
+        @media (max-width: 600px) {
+        .responsive-container {
+            flex-direction: column;   /* column on small screens */
+        }
+        }
+
+        -----------------------------------
+        🔁 Summary Table
+
+        flex-direction Value | Layout            | Use Case
+        ---------------------|-------------------|-------------------------------
+        row (default)        | Horizontal (L → R) | Nav bars, image galleries
+        column               | Vertical (T → B)   | Forms, menus, stacked content
+        row-reverse          | Horizontal (R → L) | Right-to-left layouts
+        column-reverse       | Vertical (B → T)   | Reverse-stacked elements
+
+3. Flex Layouts:
+----------------
+    Align, Justify and wrap
+
+    ORDER PROPERTY IN FLEXBOX
+    -------------------------
+
+        1. Default Value:
+        - order: 0
+
+        2. Purpose:
+        - Used to arrange flex items.
+        - Defines the visual position of an item inside a flex container.
+        - Overrides the default HTML order of elements.
+
+        3. Behavior:
+        - Items with lower order values appear first.
+        - Items with the same order follow the HTML structure.
+        - The order follows ascending numeric order.
+
+        4. Example Scenario:
+        - Container: display: inline-flex
+        - Child items: divs with rainbow colors (V I B G Y O R)
+
+        Goal:
+            - Move 'Green' (G) to the last position.
+            - Move 'Violet' (V) just before 'Green'.
+
+        CSS:
+            .green {
+                order: 10;
+            }
+
+            .violet {
+                order: 8;
+            }
+
+        Resulting Order:
+            I B Y O R V G
+
+        Explanation:
+            - Default items have order: 0
+            - Violet has order: 8
+            - Green has order: 10
+            => So final arrangement is based on: 0 ≤ 8 < 10
+
+        5. Important Note:
+        - Order values are compared in ascending order.
+        - Lower order value = item appears earlier in layout.
+
+
+    FLEX-WRAP PROPERTY IN FLEXBOX
+    -----------------------------
+
+        1. Default Value:
+        - flex-wrap: nowrap
+
+        2. Purpose:
+        - Controls whether the flex container’s items should wrap onto multiple lines or stay on a single line.
+        - Useful when there are too many items to fit in one line.
+
+        3. Values and Behavior:
+
+        a) nowrap (default):
+            - All flex items are kept on a single line.
+            - Items may shrink to fit the container.
+            - Overflow might occur if content is too wide.
+
+            Example:
+                flex-wrap: nowrap;
+
+        b) wrap:
+            - Items will wrap onto multiple lines from **top to bottom** (in row direction).
+            - Items will move to the next line if there isn't enough space.
+
+            Example:
+                flex-wrap: wrap;
+
+        c) wrap-reverse:
+            - Same as wrap, but the direction is reversed — wraps from **bottom to top**.
+
+            Example:
+                flex-wrap: wrap-reverse;
+
+        4. Visual Example:
+
+        Container:
+            display: flex;
+            flex-wrap: wrap;
+
+        Items:
+            Multiple boxes or elements that exceed the container's width.
+
+        Result:
+            Items that can't fit in one row move to the next line.
+
+        5. Important Note:
+        - `flex-wrap` works **only on flex containers**.
+        - It affects how items break into lines when space is limited.
+        - Often used along with `flex-direction` to control layout flow.
+
+
+    JUSTIFY-CONTENT PROPERTY IN FLEXBOX
+    -----------------------------------
+
+        1. Purpose:
+        - Used to align flex items **horizontally** (along the main axis).
+        - Controls how extra space is distributed between and around items.
+
+        2. Works With:
+        - Flex containers (`display: flex` or `inline-flex`).
+        - Alignment depends on the **main axis**:
+            → If flex-direction: row → horizontal alignment.
+            → If flex-direction: column → vertical alignment.
+
+        3. Common Values and Behavior:
+
+        a) flex-start (default):
+            - Items are packed toward the **start** of the main axis.
+
+            Example:
+                justify-content: flex-start;
+
+        b) flex-end:
+            - Items are packed toward the **end** of the main axis.
+
+            Example:
+                justify-content: flex-end;
+
+        c) center:
+            - Items are **centered** along the main axis.
+
+            Example:
+                justify-content: center;
+
+        d) space-between:
+            - **Equal space between** items.
+            - First item at start, last item at end.
+
+            Example:
+                justify-content: space-between;
+
+        e) space-around:
+            - **Equal space around** each item.
+            - Half-size space at edges.
+
+            Example:
+                justify-content: space-around;
+
+        f) space-evenly:
+            - **Equal space between and around** all items.
+
+            Example:
+                justify-content: space-evenly;
+
+        4. Visual Summary:
+        - flex-start: [item][item][item]------
+        - flex-end:   ------[item][item][item]
+        - center:     ---[item][item][item]---
+        - space-between: [item]----[item]----[item]
+        - space-around:  --[item]--[item]--[item]--
+        - space-evenly:  ---[item]---[item]---[item]---
+
+        5. Important Note:
+        - `justify-content` aligns items along the **main axis only**.
+        - To align items along the **cross axis**, use `align-items` or `align-content`.
+
+
+    ALIGN-ITEMS PROPERTY IN FLEXBOX
+    -------------------------------
+
+        1. Purpose:
+        - Used to align flex items **vertically** (along the cross axis).
+        - Affects how items are aligned within the flex container when they don’t use align-self.
+
+        2. Works With:
+        - Flex containers (`display: flex` or `inline-flex`).
+        - Cross axis depends on `flex-direction`:
+            → If flex-direction: row → vertical alignment.
+            → If flex-direction: column → horizontal alignment.
+
+        3. Common Values and Behavior:
+
+        a) stretch (default):
+            - Items stretch to fill the container’s cross axis.
+            - Items must not have a fixed size for stretch to work.
+
+            Example:
+                align-items: stretch;
+
+        b) flex-start:
+            - Items are aligned at the **start** of the cross axis.
+
+            Example:
+                align-items: flex-start;
+
+        c) flex-end:
+            - Items are aligned at the **end** of the cross axis.
+
+            Example:
+                align-items: flex-end;
+
+        d) center:
+            - Items are **centered** along the cross axis.
+
+            Example:
+                align-items: center;
+
+        e) baseline:
+            - Items are aligned so their **text baselines** align.
+
+            Example:
+                align-items: baseline;
+
+        4. Visual Summary (flex-direction: row):
+
+        - stretch:     [item     ]  
+                        [item     ]
+                        [item     ]
+
+        - flex-start:  [item]
+                        [item]
+                        [item]
+
+        - flex-end:    (bottom aligned)
+                            [item]
+                            [item]
+                            [item]
+
+        - center:      (centered vertically)
+                        [item]
+                        [item]
+                        [item]
+
+        - baseline:    (text baselines aligned)
+                        [Text1 ]
+                        [Text2 ]
+                        [Text3 ]
+
+        5. Important Note:
+        - `align-items` applies to all children of a flex container.
+        - To override alignment for individual items, use `align-self`.
+
+            USING VIEWPORT HEIGHT (vh) WITH ALIGN-ITEMS
+            -------------------------------------------
+
+            1. Purpose:
+            - To vertically center flex items in the **full height** of the browser window or container.
+            - Makes the flex container take up the **entire screen height** using `height: 100vh`.
+
+            2. How It Works:
+            - `100vh` = 100% of the **viewport height** (visible browser window).
+            - When applied to a flex container with `align-items: center`, it centers child items vertically.
+
+            3. Example:
 
             CSS:
-            .container-row {
-            display: flex;
-            flex-direction: row; /* default */
-            gap: 10px;
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
             }
 
-            HTML:
-            <div class="container-row">
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            </div>
-
-            -----------------------------------
-            ✅ Flex as a Column
-            Items are placed vertically (top to bottom).
-
-            CSS:
-            .container-column {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            .box {
+                width: 200px;
+                height: 100px;
+                background-color: lightblue;
             }
 
-            HTML:
-            <div class="container-column">
-            <div>Item A</div>
-            <div>Item B</div>
-            <div>Item C</div>
-            </div>
+            4. Result:
+            - The `.box` will appear **perfectly centered** both horizontally and vertically in the screen.
 
-            -----------------------------------
-            🔄 Responsive Example: Switch Between Row and Column
-
-            CSS:
-            .responsive-container {
-            display: flex;
-            flex-direction: row;        /* row on big screens */
-            }
-
-            @media (max-width: 600px) {
-            .responsive-container {
-                flex-direction: column;   /* column on small screens */
-            }
-            }
-
-            -----------------------------------
-            🔁 Summary Table
-
-            flex-direction Value | Layout            | Use Case
-            ---------------------|-------------------|-------------------------------
-            row (default)        | Horizontal (L → R) | Nav bars, image galleries
-            column               | Vertical (T → B)   | Forms, menus, stacked content
-            row-reverse          | Horizontal (R → L) | Right-to-left layouts
-            column-reverse       | Vertical (B → T)   | Reverse-stacked elements
-
-        
+            5. Use Case:
+            - Helpful for landing pages, hero sections, or modals that need to be centered in full-screen view.
