@@ -355,3 +355,71 @@
 
             5. Use Case:
             - Helpful for landing pages, hero sections, or modals that need to be centered in full-screen view.
+
+    ALIGN-CONTENT PROPERTY IN FLEXBOX
+    ----------------------------------
+
+        1. Purpose:
+        - Used to align **multiple rows** of flex items along the **cross axis** (vertical, if flex-direction: row).
+        - Applies only when there is **wrapping** (`flex-wrap: wrap`) and **multiple lines** of items.
+
+        2. Works With:
+        - Flex containers (`display: flex` or `inline-flex`) with:
+            → `flex-wrap: wrap` or `wrap-reverse`
+            → Multiple rows/columns of items
+
+        3. Difference from align-items:
+        - `align-items`: aligns **individual items** in a single row.
+        - `align-content`: aligns the **entire row group** (i.e., line packing).
+
+        4. Common Values and Behavior:
+
+        a) flex-start:
+            - Rows are packed toward the **start** of the cross axis.
+
+            Example:
+                align-content: flex-start;
+
+        b) flex-end:
+            - Rows are packed toward the **end** of the cross axis.
+
+            Example:
+                align-content: flex-end;
+
+        c) center:
+            - Rows are **centered** in the container.
+
+            Example:
+                align-content: center;
+
+        d) space-between:
+            - Equal **space between** rows.
+            - No space at top/bottom.
+
+            Example:
+                align-content: space-between;
+
+        e) space-around:
+            - Equal **space around** each row.
+            - Half space at top/bottom.
+
+            Example:
+                align-content: space-around;
+
+        f) space-evenly:
+            - Equal space **between and around** rows.
+
+            Example:
+                align-content: space-evenly;
+
+        g) stretch (default):
+            - Rows stretch to fill the container height.
+
+            Example:
+                align-content: stretch;
+
+        5. Important Notes:
+        - Has **no effect** if there is only **one line** of items.
+        - Best used when items wrap to **multiple rows or columns**.
+        - Affects **row spacing**, not individual item alignment.
+
